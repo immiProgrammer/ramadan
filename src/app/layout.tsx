@@ -43,7 +43,7 @@ export default function RootLayout({
             </div> */}
           </div>
           <div className="flex justify-center items-center text-center border rounded-full py-2 px-3 backdrop-brightness-90 shadow-lg drop-shadow-xl backdrop-blur-sm">
-            <a className="text-[#ffb02e] hover:underline" href={"https://github.com/immiProgrammer"} target="_blank">mimranabid2@gmail.com (immi)</a>
+            <a className="text-[#ffb02e] hover:underline" href={"https://github.com/immiProgrammer"} target="_blank">immiProgrammer (Imran Abid)</a>
           </div>
           </main>
       </ThemeProvider>
