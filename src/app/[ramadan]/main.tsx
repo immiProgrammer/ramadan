@@ -180,7 +180,7 @@ export const Card: React.FC<PageProps> = ({
           <p className="text-xs text-gradient-c1">Current Time:</p>
           <HHMMSS size={16}
           className='px-2 py-1 h-fit text-gradient-c1'
-          h={currentTime.getHours()} m={currentTime.getMinutes()} s={currentTime.getSeconds()}/>
+          h={parseInt(formatDate(currentTime.getHours(), 'hh'))} m={currentTime.getMinutes()} s={currentTime.getSeconds()}/>
         </div>}
       </div>
       {SeharIftarComp}
