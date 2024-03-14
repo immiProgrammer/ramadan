@@ -1,3 +1,4 @@
+"use client";
 import LongDate from "@/components/CurrentDate";
 import Card from "./main";
 import SeharIftar from "@/components/SeharIftar";
@@ -6,7 +7,7 @@ import Footer from "./footer";
 import { useEffect } from "react";
 import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
+async function generateStaticParams() {
   const slugs = Array.from({length: 30}, (_, i) => (String(i+1)));
   slugs.push("Now")
   return slugs.map((rNo) => ({
