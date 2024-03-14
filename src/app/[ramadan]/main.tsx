@@ -167,6 +167,11 @@ export const Card: React.FC<PageProps> = ({
     timeDiff = getTimeDifference(tomorrowRamadan.seharDate, currentTime)
   }
 
+  console.log({
+    todayDate, currentRamadan,
+    tomorrowDate, tomorrowRamadan,
+    currentTime, timeDiff
+  })
   return (
     <div className='flex flex-col gap-5 justify-center items-center'>
       <div className={cn('flex flex-col-reverse sm:flex-row items-center gap-2 w-full', forSpecificDay?"justify-center text-center":"justify-between")}>
