@@ -102,7 +102,7 @@ export const Card: React.FC<PageProps> = ({
     <p 
     className='text-wrap text-sm text-[#feca7f]'>
       Remaining until <br className='hidden sm:block' /><Link className='font-bold' href={`/${(DifferenceOf!==RamadanTime.tomorrowSehar?currentRamadan.ramadanNo:tomorrowRamadan?.ramadanNo)}`}>&quot;<span className='underline'>{DifferenceOf}</span>&quot;</Link> time. &quot;{formatDate(getDifferenceTimeOfDate()!, "hh")}:{formatDate(getDifferenceTimeOfDate()!, "mm")}&quot;
-    </p>), [DifferenceOf, getDifferenceTimeOfDate])
+    </p>), [DifferenceOf, getDifferenceTimeOfDate, currentRamadan, tomorrowRamadan?.ramadanNo])
 
   //   const ramadanDates = useMemo(()=> getByDate(currentTime), [currentTime.getDate()])
   let timeDiff = {
@@ -117,8 +117,7 @@ export const Card: React.FC<PageProps> = ({
     if (!isDatesEqual(currentTime, todayDate) && !forSpecificDay){
       setError(true)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [currentTime, forSpecificDay, todayDate]);
 
   useEffect(() => {
     if (!forSpecificDay){
@@ -133,7 +132,7 @@ export const Card: React.FC<PageProps> = ({
       setCurrentTime(todayDate)
     }
 
-  }, []);
+  }, [forSpecificDay, todayDate]);
 
   if (Error){
     console.log("ServerDate", todayDate, "ClientDate", currentTime)
