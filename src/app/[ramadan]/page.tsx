@@ -2,9 +2,8 @@
 import LongDate from "@/components/CurrentDate";
 import Card from "./main";
 import SeharIftar from "@/components/SeharIftar";
-import { getByDate, getObjectByRamadanNo, ramadanDateObj } from '@/data/radmadanDates';
+import { getByDate, getObjectByRamadanNo } from '@/data/radmadanDates';
 import Footer from "./footer";
-import { useEffect } from "react";
 import { notFound } from "next/navigation";
 
 async function generateStaticParams() {
@@ -16,7 +15,7 @@ async function generateStaticParams() {
 }
 
 const Page: React.FC<{params:{ramadan:string}}> = (prop) => {
-  
+
   const currentDate = new Date()
   const tomorrow = new Date(currentDate)
   tomorrow.setDate(currentDate.getDate()+1)
@@ -35,11 +34,10 @@ const Page: React.FC<{params:{ramadan:string}}> = (prop) => {
       notFound()
     }
   }
-  const currentRamadan = getByDate(currentDate)
 
+  const currentRamadan = getByDate(currentDate)
   const tomorrowRamadan = getByDate(tomorrow)
-  console.log(currentDate, tomorrow)
-  
+
   if (!currentRamadan){
     console.log("CurrentDate:", currentDate)
     console.log("RamadanDate:", currentRamadan)
@@ -54,9 +52,8 @@ const Page: React.FC<{params:{ramadan:string}}> = (prop) => {
       currentRamadan={currentRamadan}
       tomorrowDate={tomorrow}
       tomorrowRamadan={tomorrowRamadan}
-      
+
       currentDateComp={<LongDate date={currentDate} currentRamadan={currentRamadan}/>}
-      // currentRamadanComp={<div>Current Ramadan: &quot;{currentRamadan.ramadanNo}&quot;</div>}
       SeharIftarComp={<SeharIftar ramadan={currentRamadan}/>}
       CardFooter={<Footer/>}
      />
