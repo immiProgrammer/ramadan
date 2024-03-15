@@ -1,7 +1,7 @@
 "use client";
 import LongDate from "@/components/CurrentDate";
 import Card from "./main";
-import SeharIftar from "@/components/SeharIftar";
+import {SeharIftar} from "@/components/SeharIftar";
 import { getByDate, getObjectByRamadanNo } from '@/data/radmadanDates';
 import Footer from "./footer";
 import { notFound } from "next/navigation";
@@ -14,14 +14,14 @@ async function generateStaticParams() {
   }))
 }
 
-const Page: React.FC<{params:{ramadan:string}}> = (prop) => {
+const Page: React.FC<{params:{ramadan:string}}> = (props) => {
 
   const currentDate = new Date()
   const tomorrow = new Date(currentDate)
   tomorrow.setDate(currentDate.getDate()+1)
 
-  if (prop.params.ramadan !== "Now"){
-    let ramadanNo = parseInt(prop.params.ramadan);
+  if (props.params.ramadan !== "Now"){
+    let ramadanNo = parseInt(props.params.ramadan);
     if (ramadanNo > 0 && ramadanNo < 31){
       let currentRamadan = getObjectByRamadanNo(ramadanNo)!
       currentDate.setFullYear(
@@ -48,7 +48,7 @@ const Page: React.FC<{params:{ramadan:string}}> = (prop) => {
     <>
     <Card 
       todayDate={currentDate}
-      forSpecificDay={prop.params.ramadan !== "Now"}
+      forSpecificDay={props.params.ramadan !== "Now"}
       currentRamadan={currentRamadan}
       tomorrowDate={tomorrow}
       tomorrowRamadan={tomorrowRamadan}

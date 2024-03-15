@@ -1,19 +1,11 @@
 "use client";
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import HHMMSS from '../../components/HHMMSS';
-import { formatDate, isSameDay, isSameMonth, isSameYear } from 'date-fns';
+import HHMMSS from '@/components/HHMMSS';
+import { formatDate } from 'date-fns';
 import { ramadanDateObj } from '@/data/radmadanDates';
-import { cn } from '@/lib/utils';
+import { cn, isDatesEqual } from '@/lib/utils';
 import "react-awesome-animated-number/dist/index.css";
-
-export function isDatesEqual(date1:Date, date2:Date) {
-  const sameDay = isSameDay(date1, date2);
-  const sameMonth = isSameMonth(date1, date2);
-  const sameYear = isSameYear(date1, date2);
-
-  return sameDay && sameMonth && sameYear;
-}
 
 function getTimeDifference(newDate:Date, oldDate:Date) {
     // Calculate the difference in milliseconds

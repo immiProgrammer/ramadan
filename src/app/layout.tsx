@@ -25,7 +25,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-          <main className="flex flex-col sm:justify-center items-center h-full pm-10 sm:pm-0">
+          <main className="flex flex-col items-center h-full pm-10 sm:pm-0">
           {/* <NavLink href={"/"} className={ "m-3 my-10 rounded-md py-2 px-4 bg-primary/10 border border-border hover:text-muted-foreground" } onActive="underline">Home</NavLink> */}
           <nav className="px-8 py-3 rounded-full border shadow-lg drop-shadow-xl backdrop-blur-md backdrop-brightness-90 sticky sm:absolute mb-10 sm:mb-0 top-1">
             <ol className="flex gap-5">
@@ -34,12 +34,9 @@ export default function RootLayout({
             <li><Link href={"/Now"} className="hover:underline text-gradient-c1 hover:text-white">Now</Link></li>
             </ol>
           </nav>
-          <div className="bg-card/5 backdrop-brightness-90 shadow-lg drop-shadow-xl border rounded-xl mb-5 sm:py-10 py-4 sm:px-20 px-8 sm:pb-5 pb-2 backdrop-blur-sm sm:mt-16">
+          {/* <div className="bg-card/5 backdrop-brightness-90 shadow-lg drop-shadow-xl border rounded-xl mb-5 sm:py-10 py-4 sm:px-20 px-8 sm:pb-5 pb-2 backdrop-blur-sm sm:mt-16"> */}
             {children}
-            {/* <div>
-              immi
-            </div> */}
-          </div>
+          {/* </div> */}
           <div className="flex justify-center items-center text-center border rounded-full py-2 px-3 backdrop-brightness-90 shadow-lg drop-shadow-xl backdrop-blur-sm">
             <a className="text-[#ffb02e] hover:underline" href={"https://github.com/immiProgrammer"} target="_blank">immiProgrammer (Imran Abid)</a>
           </div>
