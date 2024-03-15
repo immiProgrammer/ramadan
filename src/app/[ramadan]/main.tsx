@@ -71,7 +71,8 @@ export const Card: React.FC<PageProps> = ({
   const DiffDetailsComp = useMemo(() => (
     <p 
     className='text-wrap text-sm text-[#feca7f]'>
-      Remaining until <br className='hidden sm:block' /><Link className='font-bold' href={`/${(DifferenceOf!==RamadanTime.tomorrowSehar?currentRamadan.ramadanNo:tomorrowRamadan?.ramadanNo)}`}>&quot;<span className='underline'>{DifferenceOf}</span>&quot;</Link> time. &quot;{formatDate(getDifferenceTimeOfDate()!, "hh")}:{formatDate(getDifferenceTimeOfDate()!, "mm")}&quot;
+      Remaining until <br className='hidden sm:block' /><Link className='font-bold hover:underline' href={`/${(DifferenceOf!==RamadanTime.tomorrowSehar?currentRamadan.ramadanNo:tomorrowRamadan?.ramadanNo)}`}>&quot;<span className='underline'>{DifferenceOf}</span>&quot;</Link> time.
+      &quot;<Link className='hover:underline' href={`/${(DifferenceOf!==RamadanTime.tomorrowSehar?currentRamadan.ramadanNo:tomorrowRamadan?.ramadanNo)}`}>{formatDate(getDifferenceTimeOfDate()!, "hh")}:{formatDate(getDifferenceTimeOfDate()!, "mm")}</Link>&quot;
     </p>), [DifferenceOf, getDifferenceTimeOfDate, currentRamadan, tomorrowRamadan?.ramadanNo])
 
   let timeDiff = {
