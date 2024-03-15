@@ -107,17 +107,18 @@ export const Card: React.FC<PageProps> = ({
     return <div>Date is not Correct &quot;clg&quot;</div>
   }
 
-  if (DifferenceOf === RamadanTime.Iftar){
+  
+  if (DifferenceOf === RamadanTime.Sehar) {
+    if (currentTime > currentRamadan.seharDate){
+      setDifferenceOf(RamadanTime.Iftar)
+  }
+    timeDiff = getTimeDifference(currentRamadan.seharDate, currentTime)
+
+  }else if (DifferenceOf === RamadanTime.Iftar){
     if (currentTime > currentRamadan.iftarDate){
       setDifferenceOf(RamadanTime.tomorrowSehar)
     }
     timeDiff = getTimeDifference(currentRamadan.iftarDate, currentTime)
-    
-  } else if (DifferenceOf === RamadanTime.Sehar) {
-    if (currentTime > currentRamadan.seharDate){
-      setDifferenceOf(RamadanTime.Sehar)
-    }
-    timeDiff = getTimeDifference(currentRamadan.seharDate, currentTime)
 
   } else if (DifferenceOf === RamadanTime.tomorrowSehar) {
       if (typeof tomorrowRamadan === 'undefined'){
