@@ -26,7 +26,7 @@ export function TimeLabel({label, date, align}:{label:string, date:Date, align?:
 
 function HHMM({date, className}:{date:Date, className?:string}) {
   return (
-    <div className={cn('text-xl font-bold', className)}>{formatDate(date, "hh")} : {formatDate(date, "mm")}</div>
+    <div className={cn('text-xl font-bold', className)}>{formatDate(date, "hh : mm")}</div>
   )
 }
 

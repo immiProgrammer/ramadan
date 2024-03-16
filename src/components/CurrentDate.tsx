@@ -8,7 +8,7 @@ export default function LongDate({date, currentRamadan}:{date:Date, currentRamad
   return (
     <div>
     <div className='text-gradient-c1'>
-        {formatDate(date, 'EEEE')}, {formatDate(date, 'MMMM')} {formatDate(date, 'dd')}
+        {formatDate(date, 'EEEE, MMMM dd')}
     </div>
     <div className='gradient-text'>
         <Link href={`/${currentRamadan.ramadanNo}`}><span className='font-bold'>{"Ramadan"}</span>, <span className='font-bold scale-150' style={{fontSize: "1.5em"}}>{zfill(currentRamadan.ramadanNo)}</span> {"1445"}</Link>
