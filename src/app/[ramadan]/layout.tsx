@@ -2,8 +2,10 @@ import WrapperDiv from '../wrapper';
 
 export default function RootLayout({
     children,
+    params,
   }: Readonly<{
     children: React.ReactNode;
+    params: {ramadan:string}
   }>) {
     return (
       <WrapperDiv>
