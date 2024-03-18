@@ -1,11 +1,12 @@
 "use client";
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import Link from 'next/link';
+import { Link } from '@lexz451/next-nprogress';
 import HHMMSS from '@/components/HHMMSS';
 import { formatDate } from 'date-fns';
 import { ramadanDateObj } from '@/data/radmadanDates';
 import { cn, isDatesEqual } from '@/lib/utils';
 import "react-awesome-animated-number/dist/index.css";
+
 
 function getTimeDifference(newDate:Date, oldDate:Date) {
     // Calculate the difference in milliseconds
@@ -62,7 +63,7 @@ export const Card: React.FC<PageProps> = ({
   }, [DifferenceOf, currentRamadan, tomorrowRamadan])
   const DiffDetailsComp = useMemo(() => (
     <p 
-    className='text-wrap text-sm text-[#feca7f]'>
+    className='text-wrap text-sm text-card-foreground'>
       Remaining until <br className='hidden sm:block' /><Link className='font-bold hover:underline' href={`/${(DifferenceOf!==RamadanTime.tomorrowSehar?currentRamadan.ramadanNo:tomorrowRamadan?.ramadanNo)}`}>&quot;<span className='underline'>{DifferenceOf}</span>&quot;</Link> time.
       &quot;<Link className='hover:underline' href={`/${(DifferenceOf!==RamadanTime.tomorrowSehar?currentRamadan.ramadanNo:tomorrowRamadan?.ramadanNo)}`}>{formatDate(getDifferenceTimeOfDate()!, "hh:mm")}</Link>&quot;
     </p>), [DifferenceOf, getDifferenceTimeOfDate, currentRamadan, tomorrowRamadan?.ramadanNo])
@@ -132,16 +133,16 @@ export const Card: React.FC<PageProps> = ({
       <div className={cn('flex flex-col-reverse sm:flex-row items-center gap-2 w-full', forSpecificDay?"justify-center text-center":"justify-between")}>
         {currentDateComp}
         {!forSpecificDay && <div className=''>
-          <p className="text-xs text-gradient-c1">Current Time:</p>
+          <p className="text-xs text-card-foreground">Current Time:</p>
           <HHMMSS size={16}
-          className='px-2 py-1 h-fit text-gradient-c1'
+          className='px-2 py-1 h-fit text-card-foreground'
           h={parseInt(formatDate(currentTime, 'hh'))} m={currentTime.getMinutes()} s={currentTime.getSeconds()}/>
         </div>}
       </div>
       {SeharIftarComp}
       {!forSpecificDay && <div className='flex flex-col sm:flex-row gap-2 items-center'>
         <HHMMSS size={20}
-         className='px-3 py-2 text-gradient-c1'
+         className='px-3 py-2 text-card-foreground'
          h={timeDiff.hours} m={timeDiff.minutes} s={timeDiff.seconds}/>
 
         {DiffDetailsComp}

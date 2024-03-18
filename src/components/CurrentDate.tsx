@@ -1,13 +1,13 @@
 import { ramadanDateObj } from '@/data/radmadanDates'
 import { zfill } from '@/lib/utils'
 import { formatDate } from 'date-fns'
-import Link from 'next/link'
+import { Link } from '@lexz451/next-nprogress';
 import React from 'react'
 
 export default function LongDate({date, currentRamadan}:{date:Date, currentRamadan:ramadanDateObj}) {
   return (
     <div>
-    <div className='text-gradient-c1'>
+    <div className='text-card-foreground'>
         {formatDate(date, 'EEEE, MMMM dd')}
     </div>
     <div className='gradient-text'>
