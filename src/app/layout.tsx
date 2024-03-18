@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Link } from '@lexz451/next-nprogress';
 import "./globals.css";
 import ProgressWrapper from "@/components/ProgressWrapper";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} `}>
+      <Suspense fallback={<div>Loading...</div>}>
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -45,6 +47,7 @@ export default function RootLayout({
           </main>
       </ProgressWrapper>
       </ThemeProvider>
+      </Suspense>
       </body>
     </html>
   );
