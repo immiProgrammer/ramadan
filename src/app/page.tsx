@@ -15,7 +15,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 // import { useRouter } from '@/hooks/useRouter';
-// import { useRouter } from 'next/navigation';
+import { useRouter as useNextRouter } from 'next/navigation';
 import { Link, useRouter } from '@lexz451/next-nprogress';
 
 export default function Home() {
@@ -23,9 +23,9 @@ export default function Home() {
 
   return (
 
-    <div className='sm:mt-16 mt-0 w-full flex flex-col items-center'>
-      <h1 className='text-center mb-5 sm:mt-5 gradient-text text-4xl font-extrabold'>Ramadan Calendar <br /> 2024</h1>
-    <WrapperDiv className='min-w-fit w-3/4 sm:mt-0'>
+    <div className='w-full flex flex-col items-center'>
+      <h1 className='text-center mb-5 sm:mt-5 gradient-text textHeading font-extrabold'>Ramadan Calendar <br /> 2024</h1>
+    <WrapperDiv className='min-w-fit w-11/12 lg:w-3/4 sm:mt-0'>
     <div className='overflow-x-auto'>
     <Table className='table-auto'>
       <TableCaption className='text-border'>According to the Greenwich Mean Time (GMT) set on your device.</TableCaption>
@@ -41,7 +41,7 @@ export default function Home() {
       <TableBody>
         {ramadanDates.map((robj, rowIndex) => {
           let selected = isDatesEqual(currentDate, robj.seharDate);
-          return (<ScnRow key={rowIndex} rObj={robj} className={selected?'bg-muted/60 hover:bg-muted/70 text-popover-foreground':""}/>)
+          return (<ScnRow key={rowIndex} rObj={robj} className={selected?'bg-muted/60 hover:bg-muted/70 text-popover-foreground':"text-white"}/>)
         })}
       </TableBody>
     </Table>
@@ -57,6 +57,8 @@ type ScnRowProp = {
 }
 const ScnRow:React.FC<ScnRowProp> = ({rObj, className="", ...props})=>{
   const router = useRouter()
+  // const nextRouter = useNextRouter()
+
 
   return (
     <TableRow {...props} className={cn("cursor-pointer", className)} onClick={(e)=> (router.push(`/${rObj.ramadanNo}`))}>

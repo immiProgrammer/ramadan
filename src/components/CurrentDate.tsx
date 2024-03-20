@@ -7,7 +7,7 @@ import React from 'react'
 export default function LongDate({date, currentRamadan}:{date:Date, currentRamadan:ramadanDateObj}) {
   return (
     <div>
-    <div className='text-card-foreground'>
+    <div>
         {formatDate(date, 'EEEE, MMMM dd')}
     </div>
     <div className='gradient-text'>

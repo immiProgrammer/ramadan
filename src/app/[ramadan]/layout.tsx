@@ -1,4 +1,5 @@
 import WrapperDiv from '../wrapper';
+import { Heading, Header } from "@/components/CardHeading";
 
 export default function RootLayout({
     children,
@@ -9,10 +10,10 @@ export default function RootLayout({
   }>) {
     return (
       <WrapperDiv>
-        <div className="flex flex-col justify-center items-center text-center text-4xl font-extrabold mb-5">
-          <h2 className="gradient-text">Ramadan Mubarak</h2>
-          <h2 className="gradient-text">2024</h2>
-        </div>
+        <Header>
+          <Heading>Ramadan Mubarak</Heading>
+          <Heading>2024</Heading>
+        </Header>
         {children}
       </WrapperDiv>
     );}

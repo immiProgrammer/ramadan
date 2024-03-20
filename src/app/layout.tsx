@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} `}>
+      <body className={`${inter.className} text-card-foreground px-2`}>
       <Suspense fallback={<div>Loading...</div>}>
       <ThemeProvider
             attribute="class"
@@ -29,13 +29,13 @@ export default function RootLayout({
             disableTransitionOnChange
           >
       <ProgressWrapper>
-          <main className="flex flex-col items-center h-full pm-10 sm:pm-0">
+          <main className="flex flex-col items-center justify-between h-full gap-6">
           {/* <NavLink href={"/"} className={ "m-3 my-10 rounded-md py-2 px-4 bg-primary/10 border border-border hover:text-muted-foreground" } onActive="underline">Home</NavLink> */}
-          <nav className="px-8 py-3 rounded-full border shadow-lg drop-shadow-xl backdrop-blur-md backdrop-brightness-90 sticky sm:absolute mb-10 sm:mb-0 top-1">
+          <nav className="px-8 py-3 rounded-full border shadow-lg drop-shadow-xl backdrop-blur-md backdrop-brightness-90">
             <ol className="flex gap-5">
 
-            <li><Link href={"/"} className="hover:underline text-card-foreground hover:opacity-80">Home</Link></li>
-            <li><Link href={"/Now"} className="hover:underline text-card-foreground hover:opacity-80">Now</Link></li>
+            <li><Link href={"/"} className="hover:underline hover:opacity-80">Home</Link></li>
+            <li><Link href={"/Now"} className="hover:underline hover:opacity-80">Now</Link></li>
             </ol>
           </nav>
           {/* <div className="bg-card/5 backdrop-brightness-90 shadow-lg drop-shadow-xl border rounded-xl mb-5 sm:py-10 py-4 sm:px-20 px-8 sm:pb-5 pb-2 backdrop-blur-sm sm:mt-16"> */}
